@@ -45,6 +45,7 @@ The reference architecture for this deployment contains the following host roles
   * Ceph RBD storage for OpenStack block storage volumes
 
 ## Repository Directory Structure ##
+```
 ├── 00_overcloud_deployment_common
 │   ├── container_image_prepare.yaml
 │   ├── network_data.yaml
