@@ -2,10 +2,14 @@
 
 
 # Disclaimers #
-**Contributors:**      Alberto Rivera Laporte | hybridpollo@proton.me
+**Contributors:**      Alberto Rivera Laporte | hybridpollo@proton.me 
+
 **Red Hat OpenStack Platform Release:** 17.0
+
 **Red Hat Ceph Storage Release:** 5.0
+
 **Current Template Revision:** 0.0.1
+
 **Additional Remarks:** As a Red Hat associate, providing product configuration examples in this repository, it is my responsibility to advise the reader the contents of this repository are provided to the community to use as-is and comes without expectation of support of Red Hat, or myself. That being said, they have been successfully tested in a well defined lab environment and I am confident that you too can be successful in the deployment as long as you are familiar with the deployment planning requisites and suitable deployment procedure of a Red Hat OpenStack Platform deployment.
 
 These deployment templates have been developed for the use of Hyperconverged deployment scenarios. Additional deployment scenarios will be available in the future as a distinct branch of this repository.
