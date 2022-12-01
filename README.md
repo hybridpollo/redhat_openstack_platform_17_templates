@@ -1,4 +1,4 @@
-# Red Hat OpenStack Platform 17.0 Hyperconverged Deployment Test Templates#
+# Red Hat OpenStack Platform 17.0 Hyperconverged Deployment Test Templates #
 
 
 # Disclaimers #
