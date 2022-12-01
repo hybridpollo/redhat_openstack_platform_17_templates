@@ -74,12 +74,15 @@ The reference architecture for this deployment contains the following host roles
 ## Repository Directory Details ##
 
 **00_overcloud_deployment_common**
+
 This directory contains environment files used through the various stages of the deployment and are the genesis to any OpenStack deployment
 
 **01_overcloud_deployment_pre**
+
 This directory contains environment files which are used prior to the actual deployment of the Overcloud software components. Red Hat OpenStack Platform 17.0 Overcloud deployment including the baremetal provisioning procedure and Ceph deployment are now segmented into independent, user-initiated Ansible driven plays for the various stages of the deployment. In contrast, previous versions of Red Hat OpenStack Platform deployments relied in a single deployment command to provision the baremetal nodes, Ceph storage components, and the Overcloud software components in the event where you are not using pre-deployed baremetal nodes.
 
 **02_overcloud_deployment**
+
 This directory contains environment files which are used as input files for the Overcloud deployment. Some of these files are user generated while some are generated during dring the pre-provisioning process.
 
 A separate section below contains the deployment steps example commands.
