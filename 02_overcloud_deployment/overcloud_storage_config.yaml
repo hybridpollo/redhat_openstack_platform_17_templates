@@ -1,0 +1,6 @@
+parameter_defaults:
+  CinderEnableIscsiBackend: false
+  CinderEnableRbdBackend: true
+  CinderBackupBackend: ceph
+  NovaEnableRbdBackend: true
+  GlanceBackend: rbd

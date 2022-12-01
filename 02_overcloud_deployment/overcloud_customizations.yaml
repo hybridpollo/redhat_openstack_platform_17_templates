@@ -1,0 +1,16 @@
+parameter_defaults:
+  # domain and endpoints
+  CloudDomain: example.xyz
+  CloudName: horizon.example.xyz
+  #dns servers
+  DnsServers: 
+    - 10.1.240.20
+  # search domains
+  DnsSearchDomains: example.xyz
+  # ntp servers
+  NtpServer: 
+    - 10.2.32.37
+    - 10.2.32.38
+  TimeZone: UTC
+  # Neutron bridge mappings for each deployed role
+  NeutronBridgeMappings: 'datacentre:br-external'

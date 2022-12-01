@@ -1,0 +1,175 @@
+- name: Controller
+  count: 3
+  defaults:
+    networks:
+    - network: ctlplane
+      vif: true
+    - network: external
+      subnet: external_subnet
+    - network: internal_api
+      subnet: internal_api_subnet 
+    - network: tenant
+      subnet: tenant_subnet
+    - network: storage
+      subnet: storage_subnet
+    - network: storage_mgmt
+      subnet: storage_mgmt_subnet
+    network_config:
+      template: /home/stack/rhosp17_hci_templates/01_overcloud_deployment_pre/network_templates/controller.j2
+      dns_search_domains: example.xyz
+      physical_bridge_name: br-external
+      default_route_network:
+      - external
+  instances:
+  - hostname: osp-ctrl01
+    name: bm-osp-ctrl01
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.68
+      - network: external
+        fixed_ip: 10.1.241.68
+      - network: internal_api
+        fixed_ip: 172.25.10.68
+      - network: tenant
+        fixed_ip: 172.25.11.68
+      - network: storage
+        fixed_ip: 172.25.12.68
+      - network: storage_mgmt
+        fixed_ip: 172.25.13.68
+  - hostname: osp-ctrl02
+    name: bm-osp-ctrl02
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.69
+      - network: external
+        fixed_ip: 10.1.241.69
+      - network: internal_api
+        fixed_ip: 172.25.10.69
+      - network: tenant
+        fixed_ip: 172.25.11.69
+      - network: storage
+        fixed_ip: 172.25.12.69
+      - network: storage_mgmt
+        fixed_ip: 172.25.13.69
+  - hostname: osp-ctrl03
+    name: bm-osp-ctrl03
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.70
+      - network: external
+        fixed_ip: 10.1.241.70
+      - network: internal_api
+        fixed_ip: 172.25.10.70
+      - network: tenant
+        fixed_ip: 172.25.11.70
+      - network: storage
+        fixed_ip: 172.25.12.70
+      - network: storage_mgmt
+        fixed_ip: 172.25.13.70
+
+- name: ComputeHCI
+  count: 5
+  defaults:
+    networks:
+    - network: ctlplane
+      vif: true
+    - network: external
+      subnet: external_subnet
+    - network: internal_api
+      subnet: internal_api_subnet 
+    - network: tenant
+      subnet: tenant_subnet
+    - network: storage
+      subnet: storage_subnet
+    - network: storage_mgmt
+      subnet: storage_mgmt_subnet
+    network_config:
+      template: /home/stack/rhosp17_hci_templates/01_overcloud_deployment_pre/network_templates/controller.j2
+      dns_search_domains: example.xyz
+      physical_bridge_name: br-external
+      default_route_network:
+      - external
+  instances:
+  - hostname: osp-comphci01
+    name: bm-osp-comp01
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.21
+      - network: external
+        fixed_ip: 10.1.240.21
+      - network: internal_api
+        fixed_ip: 172.25.10.21
+      - network: tenant
+        fixed_ip: 172.25.11.21
+      - network: storage
+        fixed_ip: 172.25.12.21
+      - network: storage_mgmt
+        fixed_ip: 172.25.13.21
+  - hostname: osp-comphci02
+    name: bm-osp-comp02
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.22
+      - network: external
+        fixed_ip: 10.1.240.22
+      - network: internal_api
+        fixed_ip: 172.25.10.22
+      - network: tenant
+        fixed_ip: 172.25.11.22
+      - network: storage
+        fixed_ip: 172.25.12.22
+      - network: storage_mgmt
+        fixed_ip: 172.25.13.22
+  - hostname: osp-comphci03
+    name: bm-osp-comp03
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.29
+      - network: external
+        fixed_ip: 10.1.240.29
+      - network: internal_api
+        fixed_ip: 172.25.10.29
+      - network: tenant
+        fixed_ip: 172.25.11.29
+      - network: storage
+        fixed_ip: 172.25.12.29
+      - network: storage_mgmt
+        fixed_ip: 172.25.13.29
+  - hostname: osp-comphci04
+    name: bm-osp-comp04
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.45
+      - network: external
+        fixed_ip: 10.1.240.45
+      - network: internal_api
+        fixed_ip: 172.25.10.45
+      - network: tenant
+        fixed_ip: 172.25.11.45
+      - network: storage
+        fixed_ip: 172.25.12.45
+      - network: storage_mgmt
+        fixed_ip: 172.25.13.45
+  - hostname: osp-comphci05
+    name: bm-osp-comp05
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.46
+      - network: external
+        fixed_ip: 10.1.240.46
+      - network: internal_api
+        fixed_ip: 172.25.10.46
+      - network: tenant
+        fixed_ip: 172.25.11.46
+      - network: storage
+        fixed_ip: 172.25.12.46
+      - network: storage_mgmt
+        fixed_ip: 172.25.13.46
