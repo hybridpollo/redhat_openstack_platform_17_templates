@@ -1,0 +1,204 @@
+---
+# Baremetal deployment definition for the Controller role
+- name: Controller
+  count: 3
+  defaults:
+    networks:
+    - network: ctlplane
+      vif: true
+    - network: external
+      subnet: external_subnet
+    - network: internal_api
+      subnet: internal_api_subnet 
+    - network: tenant
+      subnet: tenant_subnet
+    - network: storage
+      subnet: storage_subnet
+    - network: storage_mgmt
+      subnet: storage_mgmt_subnet
+    network_config:
+      template: /home/stack/rhosp_deployment/overcloud/deployment_templates/baremetal_node_deployment/network_templates/controller.j2
+      dns_search_domains: voltron.xyz
+      physical_bridge_name: br-external
+      default_route_network:
+      - external
+  ansible_playbooks:
+    - playbook: /usr/share/ansible/tripleo-playbooks/cli-overcloud-node-growvols.yaml
+      extra_vars:
+        growvols_args:
+          /=20GB
+          /tmp=2GB
+          /var/log=10GB
+          /var/log/audit=5GB
+          /home=10GB
+          /var=100%
+  instances:
+  - hostname: osp-ctrl01
+    name: osp-ctrl01
+    config_drive:
+      cloud_config:
+        ssh_pwauth: true
+        disable_root: false
+        chpasswd:
+          expire: false
+          users:
+            - name: root
+              password: redhat
+              type: text
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.21
+      - network: external
+        fixed_ip: 172.25.50.21
+      - network: internal_api
+        fixed_ip: 172.25.51.21
+      - network: tenant
+        fixed_ip: 172.25.52.21
+      - network: storage
+        fixed_ip: 172.25.53.21
+      - network: storage_mgmt
+        fixed_ip: 172.25.54.21
+
+  - hostname: osp-ctrl02
+    name: osp-ctrl02
+    config_drive:
+      cloud_config:
+        ssh_pwauth: true
+        disable_root: false
+        chpasswd:
+          expire: false
+          users:
+            - name: root
+              password: redhat
+              type: text
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.22
+      - network: external
+        fixed_ip: 172.25.50.22
+      - network: internal_api
+        fixed_ip: 172.25.51.22
+      - network: tenant
+        fixed_ip: 172.25.52.22
+      - network: storage
+        fixed_ip: 172.25.53.22
+      - network: storage_mgmt
+        fixed_ip: 172.25.54.22
+
+  - hostname: osp-ctrl03
+    name: osp-ctrl03
+    config_drive:
+      cloud_config:
+        ssh_pwauth: true
+        disable_root: false
+        chpasswd:
+          expire: false
+          users:
+            - name: root
+              password: redhat
+              type: text
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.23
+      - network: external
+        fixed_ip: 172.25.50.23
+      - network: internal_api
+        fixed_ip: 172.25.51.23
+      - network: tenant
+        fixed_ip: 172.25.52.23
+      - network: storage
+        fixed_ip: 172.25.53.23
+      - network: storage_mgmt
+        fixed_ip: 172.25.54.23
+
+# Baremetal depoyment definition for the Compute role
+- name: Compute
+  count: 2
+  defaults:
+    networks:
+    - network: ctlplane
+      vif: true
+    - network: external
+      subnet: external_subnet
+    - network: internal_api
+      subnet: internal_api_subnet 
+    - network: tenant
+      subnet: tenant_subnet
+    - network: storage
+      subnet: storage_subnet
+    - network: storage_mgmt
+      subnet: storage_mgmt_subnet
+    network_config:
+      template: /home/stack/rhosp_deployment/overcloud/deployment_templates/baremetal_node_deployment/network_templates/compute.j2
+      dns_search_domains: example.xyz
+      physical_bridge_name: br-external
+      default_route_network:
+      - external
+  ansible_playbooks:
+    - playbook: /usr/share/ansible/tripleo-playbooks/cli-overcloud-node-growvols.yaml
+      extra_vars:
+        growvols_args:
+          /=50GB
+          /tmp=4GB
+          /var/log=50GB
+          /var/log/audit=5GB
+          /home=10GB
+          /var=100%
+  instances:
+  - hostname: osp-comp01
+    name: osp-comp01
+    config_drive:
+      cloud_config:
+        ssh_pwauth: true
+        disable_root: false
+        chpasswd:
+          expire: false
+          users:
+            - name: root
+              password: redhat
+              type: text
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.24
+      - network: external
+        fixed_ip: 172.25.50.24
+      - network: internal_api
+        fixed_ip: 172.25.51.24
+      - network: tenant
+        fixed_ip: 172.25.52.24
+      - network: storage
+        fixed_ip: 172.25.53.24
+      - network: storage_mgmt
+        fixed_ip: 172.25.54.24
+
+  - hostname: osp-comp02
+    name: osp-comp02
+    config_drive:
+      cloud_config:
+        ssh_pwauth: true
+        disable_root: false
+        chpasswd:
+          expire: false
+          users:
+            - name: root
+              password: redhat
+              type: text
+    networks:
+      - network: ctlplane
+        vif: true
+        fixed_ip: 172.16.24.25
+      - network: external
+        fixed_ip: 172.25.50.25
+      - network: internal_api
+        fixed_ip: 172.25.51.25
+      - network: tenant
+        fixed_ip: 172.25.52.25
+      - network: storage
+        fixed_ip: 172.25.53.25
+      - network: storage_mgmt
+        fixed_ip: 172.25.54.25
+

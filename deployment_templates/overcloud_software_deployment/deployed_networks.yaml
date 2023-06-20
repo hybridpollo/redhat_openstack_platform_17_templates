@@ -1,0 +1,116 @@
+parameter_defaults:
+  DeployedNetworkEnvironment:
+    net_attributes_map:
+      external:
+        network:
+          dns_domain: external.voltron.xyz.
+          mtu: 1500
+          name: external
+          tags:
+          - tripleo_network_name=External
+          - tripleo_net_idx=4
+          - tripleo_vip=true
+        subnets:
+          external_subnet:
+            cidr: 172.25.50.0/24
+            dns_nameservers: []
+            gateway_ip: 172.25.50.1
+            host_routes: []
+            ip_version: 4
+            name: external_subnet
+            tags:
+            - tripleo_vlan_id=50
+      internal_api:
+        network:
+          dns_domain: internalapi.voltron.xyz.
+          mtu: 9000
+          name: internal_api
+          tags:
+          - tripleo_network_name=InternalApi
+          - tripleo_net_idx=2
+          - tripleo_vip=true
+        subnets:
+          internal_api_subnet:
+            cidr: 172.25.51.0/24
+            dns_nameservers: []
+            gateway_ip: null
+            host_routes: []
+            ip_version: 4
+            name: internal_api_subnet
+            tags:
+            - tripleo_vlan_id=51
+      storage:
+        network:
+          dns_domain: storage.voltron.xyz.
+          mtu: 9000
+          name: storage
+          tags:
+          - tripleo_network_name=Storage
+          - tripleo_net_idx=0
+          - tripleo_vip=true
+        subnets:
+          storage_subnet:
+            cidr: 172.25.53.0/24
+            dns_nameservers: []
+            gateway_ip: null
+            host_routes: []
+            ip_version: 4
+            name: storage_subnet
+            tags:
+            - tripleo_vlan_id=53
+      storage_mgmt:
+        network:
+          dns_domain: storagemgmt.voltron.xyz.
+          mtu: 9000
+          name: storage_mgmt
+          tags:
+          - tripleo_network_name=StorageMgmt
+          - tripleo_net_idx=1
+          - tripleo_vip=true
+        subnets:
+          storage_mgmt_subnet:
+            cidr: 172.25.54.0/24
+            dns_nameservers: []
+            gateway_ip: null
+            host_routes: []
+            ip_version: 4
+            name: storage_mgmt_subnet
+            tags:
+            - tripleo_vlan_id=54
+      tenant:
+        network:
+          dns_domain: tenant.voltron.xyz.
+          mtu: 9000
+          name: tenant
+          tags:
+          - tripleo_network_name=Tenant
+          - tripleo_net_idx=3
+        subnets:
+          tenant_subnet:
+            cidr: 172.25.52.0/24
+            dns_nameservers: []
+            gateway_ip: null
+            host_routes: []
+            ip_version: 4
+            name: tenant_subnet
+            tags:
+            - tripleo_vlan_id=52
+    net_cidr_map:
+      external:
+      - 172.25.50.0/24
+      internal_api:
+      - 172.25.51.0/24
+      storage:
+      - 172.25.53.0/24
+      storage_mgmt:
+      - 172.25.54.0/24
+      tenant:
+      - 172.25.52.0/24
+    net_ip_version_map:
+      external: 4
+      internal_api: 4
+      storage: 4
+      storage_mgmt: 4
+      tenant: 4
+resource_registry:
+  OS::TripleO::Network: /usr/share/openstack-tripleo-heat-templates/network/deployed_networks.yaml

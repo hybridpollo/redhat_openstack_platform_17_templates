@@ -1,0 +1,35 @@
+parameter_defaults:
+  # general host settings parameters
+  TimeZone: "America/Chicago"
+  DnsServers:
+    - 172.16.254.3
+    - 8.8.4.4
+  DnsSearchDomains: voltron.xyz
+  NtpServer:
+    - clock.nyc.he.net
+    - clock.fmt.he.net
+
+  # overcloud horizon url name and domain
+  CloudDomain: voltron.xyz
+  CloudName: horizon.bertoknows.com
+
+  # default keystone admin password
+  AdminPassword: openstack
+
+  # Resuming virtual machine states upon compute node reboot
+  NovaResumeGuestsStateOnHostBoot: True
+
+  # List of Neutron network types for networks
+  NeutronNetworkType: ["geneve","vlan","flat"]
+
+  # Neutron VLAN ranges per network, for example "datacentre:1:499,tenant:500:1000":
+  NeutronNetworkVLANRanges: "datacentre:200:250"
+
+  # Node specific heat customization parameters for each deployed role
+  ControllerParameters:
+    KernelArgs: "tsx=off"
+    NeutronBridgeMappings: "datacentre:br-external"
+  ComputeParameters:
+    KernelArgs: "tsx=off"
+    NeutronBridgeMappings: "datacentre:br-external"
+

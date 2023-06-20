@@ -1,0 +1,8 @@
+parameter_defaults:
+  BannerText: |
+    ******************************************************************
+    *      VXYZ Labs - RHOSP 17.1.0 Private Cloud Environment        *
+    *     This system is for the use of authorized users only.       *
+    ******************************************************************
+  MessageOfTheDay: |
+    This service is restricted to authorized users only.

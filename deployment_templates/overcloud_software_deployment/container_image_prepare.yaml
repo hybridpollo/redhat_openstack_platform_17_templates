@@ -1,0 +1,20 @@
+# Generated with the following on 2022-11-15T15:13:43.787613
+#
+#   openstack tripleo container image prepare default --local-push-destination --output-env-file container_image_prepare.yaml
+#
+
+parameter_defaults:
+  ContainerImagePrepare:
+  - push_destination: true
+    set:
+      name_prefix: openstack-
+      name_suffix: ''
+      namespace: registry.redhat.io/rhosp-beta
+      rhel_containers: false
+      neutron_driver: ovn
+      tag: '17.1'
+  ContainerImageRegistryLogin: True
+  ContainerImageRegistryCredentials:
+    registry.redhat.io:
+      fakeaccountid|fakeaccountname: iliketurtles
+

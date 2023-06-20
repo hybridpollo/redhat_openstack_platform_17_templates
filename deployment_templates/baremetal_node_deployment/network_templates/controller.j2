@@ -1,0 +1,77 @@
+---
+{% set mtu_list = [ctlplane_mtu] %}
+{% for network in role_networks %}
+{{ mtu_list.append(lookup('vars', networks_lower[network] ~ '_mtu')) }}
+{%- endfor %}
+{% set min_viable_mtu = mtu_list | max %}
+
+# provisioning interface
+network_config:
+- type: interface
+  name: enp1s0
+  mtu: {{ ctlplane_mtu }}
+  use_dhcp: false
+  addresses:
+  - ip_netmask: {{ ctlplane_ip }}/{{ ctlplane_subnet_cidr }}
+  routes: {{ [ctlplane_host_routes] | flatten | unique }}
+
+# external bridge
+# used for external api and provider network accessbility
+- type: ovs_bridge
+  name: br-external
+  mtu: {{ min_viable_mtu }}
+  dns_servers: {{ ctlplane_dns_nameservers }}
+  domain: {{ dns_search_domains }}
+  use_dhcp: false
+  members:
+  - type: interface
+    name: enp2s0
+    mtu: {{ min_viable_mtu }}
+    use_dhcp: false
+    primary: true
+  - type: vlan
+    mtu: {{ external_mtu }}
+    vlan_id: {{ external_vlan_id }}
+    addresses:
+    - ip_netmask: {{ external_ip }}/{{ external_cidr }}
+    routes: {{ [external_host_routes, [{'default': True, 'next_hop': external_gateway_ip}]] | flatten | unique }}
+
+# internal bridge
+# used for tagged traffic of osp internal networks
+- type: ovs_bridge
+  name: br-internal
+  mtu: {{ min_viable_mtu }}
+  use_dhcp: false
+  members:
+  - type: interface
+    name: enp3s0
+    mtu: {{ min_viable_mtu }}
+    use_dhcp: false
+  - type: vlan
+    mtu: {{ internal_api_mtu }}
+    vlan_id: {{ internal_api_vlan_id }}
+    addresses:
+    - ip_netmask: {{ internal_api_ip }}/{{ internal_api_cidr }}
+    routes: {{ [internal_api_host_routes] | flatten | unique }}
+  - type: vlan
+    mtu: {{ tenant_mtu }}
+    vlan_id: {{ tenant_vlan_id }}
+    addresses:
+    - ip_netmask: {{ tenant_ip }}/{{ tenant_cidr }}
+    routes: {{ [tenant_host_routes] | flatten | unique }}
+  - type: vlan
+    mtu: {{ storage_mtu }}
+    vlan_id: {{ storage_vlan_id }}
+    addresses:
+    - ip_netmask: {{ storage_ip }}/{{ storage_cidr }}
+    routes: {{ [storage_host_routes] | flatten | unique }}
+
+# storage management interface
+- type: interface
+  name: enp4s0
+  mtu: {{ storage_mgmt_mtu }}
+  use_dhcp: false
+  addresses:
+  - ip_netmask: {{ storage_mgmt_ip }}/{{ storage_mgmt_cidr }}
+  routes: {{ [storage_mgmt_host_routes] | flatten | unique }}
+

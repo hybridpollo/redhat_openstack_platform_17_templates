@@ -1,0 +1,27 @@
+# VIP data file for OSP17
+- network: external
+  name: external_api_vip
+  dns_name: overcloud
+  ip_address: 172.25.50.10
+
+- network: internal_api
+  name: internal_api_vip
+  dns_name: overcloud
+  ip_address: 172.25.50.10
+  ip_address: 172.25.51.10
+
+- network: storage
+  name: storage_vip
+  dns_name: overcloud
+  ip_address: 172.25.53.10
+
+- network: storage_mgmt
+  name: storage_mgmt_vip
+  dns_name: overcloud
+  ip_address: 172.25.54.10
+
+- network: ctlplane
+  name: ctlplane_vip
+  dns_name: overcloud
+  ip_address: 172.16.24.11
+

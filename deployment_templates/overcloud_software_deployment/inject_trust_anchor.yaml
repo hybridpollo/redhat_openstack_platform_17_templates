@@ -1,0 +1,10 @@
+# Inject SSL Trust Anchor on Overcloud Nodes
+parameter_defaults:
+  # Map containing the CA certs and information needed for deploying them.
+  CAMap:
+    ipa-ca-cert:
+      content: |
+        -----BEGIN CERTIFICATE-----
+        Fake CA Certificate
+        -----END CERTIFICATE-----
+

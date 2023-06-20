@@ -1,0 +1,34 @@
+#Enable SSL on OpenStack Public Endpoints
+#Use this environment to pass in certificates for SSL deployments.
+#For these values to take effect, one of the tls-endpoints-*.yaml environments
+#must also be used.
+parameter_defaults:
+  # Set CSRF_COOKIE_SECURE / SESSION_COOKIE_SECURE in Horizon
+  # Type: boolean
+  HorizonSecureCookies: True
+
+  # Specifies the default CA cert to use if TLS is used for services in the public network.
+  PublicTLSCAFile: ''
+
+  # The content of the SSL certificate (without Key) in PEM format.
+  # Type: string
+  SSLCertificate: |
+    -----BEGIN CERTIFICATE-----
+    Fake SSL Certificate
+    -----END CERTIFICATE-----
+    
+  # The content of an SSL intermediate CA certificate in PEM format.
+  # Type: string
+  SSLIntermediateCertificate: ''
+
+  # The content of the SSL Key in PEM format.
+  # Mandatory. This parameter must be set by the user.
+  # Type: string
+  SSLKey: |
+    -----BEGIN PRIVATE KEY-----
+    Fake SSL Key
+    -----END PRIVATE KEY-----
+
+  # The filepath of the certificate as it will be stored in the overcloud nodes
+  DeployedSSLCertificatePath: /etc/pki/tls/private/overcloud_endpoint.pem
+

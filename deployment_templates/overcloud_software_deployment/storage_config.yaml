@@ -1,0 +1,42 @@
+parameter_defaults:
+  #
+  # Glance Settings
+  #
+  GlanceEnabledImportMethods: web-download
+  GlanceNfsEnabled: True
+  GlanceNfsOptions: _netdev,bg,intr,context=system_u:object_r:svirt_sandbox_file_t:s0
+  GlanceNfsShare: 172.25.54.100:/lv_data/glance_images
+  GlanceNodeStagingUri: file:///var/lib/glance/staging
+  GlanceStagingNfsOptions: _netdev,bg,intr,context=system_u:object_r:svirt_sandbox_file_t:s0
+  GlanceBackend: file
+
+  # Disabled Options
+  GlanceStagingNfsShare: ''
+  NetappShareLocation: ''
+  GlanceNetappNfsEnabled: False
+  # END Disabled Options
+
+  #
+  # Cinder Settings
+  #
+  CinderBackupBackend: nfs
+  CinderEnableNfsBackend: True
+  CinderNfsMountOptions: context=system_u:object_r:container_file_t:s0
+  CinderNfsMountOptions: _netdev,bg,intr,context=system_u:object_r:svirt_sandbox_file_t:s0
+  CinderNfsServers: 172.25.54.100:/lv_data/cinder_volumes
+  # Disabled Options
+  CinderEnableIscsiBackend: False
+  CinderEnableRbdBackend: False
+  # END Disabled Options
+
+  #
+  # Nova Storage Settings
+  #
+  # These settings are false/disabled by default unless incorporating
+  # their respective environment files. Defining the default value here
+  # for readability
+  # Disabled Options
+  NovaNfsEnabled: False
+  NovaEnableRbdBackend: false
+  # END Disabled Options
+
