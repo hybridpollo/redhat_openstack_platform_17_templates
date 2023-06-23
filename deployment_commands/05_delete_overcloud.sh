@@ -27,7 +27,7 @@ fi
 
 
 ###################################################                                                               
-# Provision the baremetal node command
+# Delete the undercloud 
 ###################################################    
 openstack overcloud delete -b ${BAREMETAL_NODE_FILE} --networks-file ${NETWORK_DATA_FILE} --network-ports ${STACK_NAME}
 
