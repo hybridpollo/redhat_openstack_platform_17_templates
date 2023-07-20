@@ -16,11 +16,11 @@ parameter_defaults:
   # default keystone admin password
   AdminPassword: openstack
 
-  # Resuming virtual machine states upon compute node reboot
-  NovaResumeGuestsStateOnHostBoot: True
-
   # List of Neutron network types for networks
-  NeutronNetworkType: ["geneve","vlan","flat"]
+  NeutronNetworkType: 
+    - geneve
+    - vlan 
+    - flat
 
   # Neutron VLAN ranges per network, for example "datacentre:1:499,tenant:500:1000":
   NeutronNetworkVLANRanges: "datacentre:200:250"
@@ -32,4 +32,3 @@ parameter_defaults:
   ComputeParameters:
     KernelArgs: "tsx=off"
     NeutronBridgeMappings: "datacentre:br-external"
-

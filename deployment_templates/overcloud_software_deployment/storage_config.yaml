@@ -4,10 +4,8 @@ parameter_defaults:
   #
   GlanceEnabledImportMethods: web-download
   GlanceNfsEnabled: True
-  GlanceNfsOptions: _netdev,bg,intr,context=system_u:object_r:svirt_sandbox_file_t:s0
   GlanceNfsShare: 172.25.54.100:/lv_data/glance_images
   GlanceNodeStagingUri: file:///var/lib/glance/staging
-  GlanceStagingNfsOptions: _netdev,bg,intr,context=system_u:object_r:svirt_sandbox_file_t:s0
   GlanceBackend: file
 
   # Disabled Options
@@ -21,8 +19,6 @@ parameter_defaults:
   #
   CinderBackupBackend: nfs
   CinderEnableNfsBackend: True
-  CinderNfsMountOptions: context=system_u:object_r:container_file_t:s0
-  CinderNfsMountOptions: _netdev,bg,intr,context=system_u:object_r:svirt_sandbox_file_t:s0
   CinderNfsServers: 172.25.54.100:/lv_data/cinder_volumes
   # Disabled Options
   CinderEnableIscsiBackend: False

@@ -1,8 +1,10 @@
 parameter_defaults:
   BannerText: |
     ******************************************************************
-    *      VXYZ Labs - RHOSP 17.1.0 Private Cloud Environment        *
-    *     This system is for the use of authorized users only.       *
+    *   Red Hat OpenStack Platform 17.1 Beta Live Stream Yooooooo!   *
+    *     Please wash your hands after keyboard use !                *
+    *                Keep the germs away !                           *
+    *       Unless you are building your immune system.              *
     ******************************************************************
   MessageOfTheDay: |
     This service is restricted to authorized users only.

@@ -1,28 +1,16 @@
 ---
-- name: Storage
-  name_lower: storage
+- name: External
+  name_lower: external
   vip: true
-  mtu: 9000
+  mtu: 1500
   subnets:
-    storage_subnet:
-      ip_subnet: 172.25.53.0/24
+    external_subnet:
+      ip_subnet: 172.25.50.0/24
       allocation_pools:
-        - start: 172.25.53.240
-          end: 172.25.53.254
-      vlan: 53
-      enable_dhcp: false
-
-- name: StorageMgmt
-  name_lower: storage_mgmt
-  vip: true
-  mtu: 9000
-  subnets:
-    storage_mgmt_subnet:
-      ip_subnet: 172.25.54.0/24
-      allocation_pools:
-        - start: 172.25.54.240
-          end: 172.25.54.254
-      vlan: 54
+        - start: 172.25.50.240
+          end: 172.25.50.254
+      gateway_ip: 172.25.50.1
+      vlan: 50
       enable_dhcp: false
 
 - name: InternalApi
@@ -51,17 +39,28 @@
       vlan: 52
       enable_dhcp: false
 
-- name: External
-  name_lower: external
+- name: Storage
+  name_lower: storage
   vip: true
-  mtu: 1500
+  mtu: 9000
   subnets:
-    external_subnet:
-      ip_subnet: 172.25.50.0/24
+    storage_subnet:
+      ip_subnet: 172.25.53.0/24
       allocation_pools:
-        - start: 172.25.50.240
-          end: 172.25.50.254
-      gateway_ip: 172.25.50.1
-      vlan: 50
+        - start: 172.25.53.240
+          end: 172.25.53.254
+      vlan: 53
       enable_dhcp: false
 
+- name: StorageMgmt
+  name_lower: storage_mgmt
+  vip: true
+  mtu: 9000
+  subnets:
+    storage_mgmt_subnet:
+      ip_subnet: 172.25.54.0/24
+      allocation_pools:
+        - start: 172.25.54.240
+          end: 172.25.54.254
+      vlan: 54
+      enable_dhcp: false
