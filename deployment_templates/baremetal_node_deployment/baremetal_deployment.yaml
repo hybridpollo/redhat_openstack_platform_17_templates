@@ -17,7 +17,7 @@
     - network: storage_mgmt
       subnet: storage_mgmt_subnet
     network_config:
-      template: /home/stack/rhosp_deployment/overcloud/deployment_templates/baremetal_node_deployment/network_templates/controller.j2
+      template: /home/stack/redhat_openstack_platform_17_templates/deployment_templates/baremetal_node_deployment/network_templates/controller.j2
       dns_search_domains: voltron.xyz
       physical_bridge_name: br-external
       default_route_network:
@@ -132,7 +132,7 @@
     - network: storage_mgmt
       subnet: storage_mgmt_subnet
     network_config:
-      template: /home/stack/rhosp_deployment/overcloud/deployment_templates/baremetal_node_deployment/network_templates/compute.j2
+      template: /home/stack/redhat_openstack_platform_17_templates/deployment_templates/baremetal_node_deployment/network_templates/compute.j2
       dns_search_domains: example.xyz
       physical_bridge_name: br-external
       default_route_network:

@@ -1,0 +1,53 @@
+# Node registration file
+# 3 x controllers
+# 3 x computes
+---
+nodes:
+- name: osp-ctrl01
+  ports:
+    - address: 52:54:00:8d:2d:1f
+  capabilities: boot_option:local,boot_mode:bios
+  pm_type: ipmi
+  pm_user: admin
+  pm_password: redhat
+  pm_addr: 172.16.254.100
+  pm_port: 6230
+
+- name: osp-ctrl02
+  ports:
+    - address: 52:54:00:37:be:5e
+  capabilities: boot_option:local,boot_mode:bios
+  pm_type: ipmi
+  pm_user: admin
+  pm_password: redhat
+  pm_addr: 172.16.254.100
+  pm_port: 6231
+
+- name: osp-ctrl03
+  ports:
+    - address: 52:54:00:e1:6c:a1
+  capabilities: boot_option:local,boot_mode:bios
+  pm_type: ipmi
+  pm_user: admin
+  pm_password: redhat
+  pm_addr: 172.16.254.100
+  pm_port: 6232
+
+- name: osp-comp01
+  ports:
+    - address: 94:18:82:08:58:94
+  capabilities: boot_option:local,boot_mode:bios
+  pm_type: ipmi
+  pm_user: admin
+  pm_password: iliketurtles
+  pm_addr: 172.16.254.201
+
+- name: osp-comp02
+  ports:
+    - address: ec:eb:b8:99:9e:cc
+  capabilities: boot_option:local,boot_mode:bios
+  pm_type: ipmi
+  pm_user: admin
+  pm_password: iliketurtles
+  pm_addr: 172.16.254.202
+

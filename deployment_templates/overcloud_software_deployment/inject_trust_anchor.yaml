@@ -5,6 +5,31 @@ parameter_defaults:
     ipa-ca-cert:
       content: |
         -----BEGIN CERTIFICATE-----
-        Fake CA Certificate
+        MIIEizCCAvOgAwIBAgIBATANBgkqhkiG9w0BAQsFADA2MRQwEgYDVQQKDAtWT0xU
+        Uk9OLlhZWjEeMBwGA1UEAwwVQ2VydGlmaWNhdGUgQXV0aG9yaXR5MB4XDTIwMDYx
+        MDA1MzMwOFoXDTQwMDYxMDA1MzMwOFowNjEUMBIGA1UECgwLVk9MVFJPTi5YWVox
+        HjAcBgNVBAMMFUNlcnRpZmljYXRlIEF1dGhvcml0eTCCAaIwDQYJKoZIhvcNAQEB
+        BQADggGPADCCAYoCggGBALrTJ4MKreji1UYP6nW3E85f/b3R1Yd5UQOz9JTkNrwn
+        lc2zdjWX4M8mI+FQ0sSVEmAZvujkA8N3f+UH1B/Hv36DsfgQK1iK/H628LzSp/ae
+        owVb+JBNQU0W3j1xASbr5L/obRxrf8U9YUEC2hnfxX25238nePFswURp+bjgTOW0
+        CbJcYpedy9gey7LjkhG0ZICmzevoZRno3MLh7gvLfYuqjuzPpZTbIjGrQzbm6PS+
+        nEOtS8OK2++YLwhFp/ry959BXefnLOOO3NoxNqhW4wYmNJq8veE2aC+wMVlLsvAD
+        0QeElYXAE868/CEw+fWVpUBN21Pzpryd3ACmKZHfeebt6nGGlDL8tGfFWkp3WNVL
+        z5/a61ioF9hLWnxImyw5VSUkbta7yjGA7jbk3mXfbE498neltXrKZsYRNCoUFEAW
+        whAfYYVtzvxv88iRBrNrdwFWynY648QnSGZ5BvGeHxnxy7KM8BNFtBHeIonsKM6P
+        BW3axC6TAYGzQJ1w5nb4LwIDAQABo4GjMIGgMB8GA1UdIwQYMBaAFAmZSmlZnC4g
+        V8OB8RIIWJ8umOOdMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgHGMB0G
+        A1UdDgQWBBQJmUppWZwuIFfDgfESCFifLpjjnTA9BggrBgEFBQcBAQQxMC8wLQYI
+        KwYBBQUHMAGGIWh0dHA6Ly9pcGEtY2Eudm9sdHJvbi54eXovY2Evb2NzcDANBgkq
+        hkiG9w0BAQsFAAOCAYEACLZvurB6mHKgwKN1wy37kuMEMAocjpAFuHhYSzjW8G9H
+        jtmQci+yg3QGfrIghbpRJO6k0Qx0AVus24cH/TIZ94ibewmSvchZ5PrAp6ften3C
+        CGC2rDpY4tK6RTBxbnk/sETJy1B7pM2u5/88JkOlgX1RDzkhAJVA+X08PrCYi3xD
+        FUD9H4xOfbpFMdWgPFiP/efQ+HTuwZnjyzF+mJ1YuJBYs6BmGGYLorOdPNfX9O63
+        v6//8/9wreDYcnWS5DBnYMuleh95qrh4pMvWpg6ItnAIlaYYGnsdhzI1P3ZKxzI3
+        rTLBZXxwtwVZomDB9p/kz2/I9v4F7SgCuzd0aP7tbO4r7emCaZvMOLAUU6gRKMB2
+        FAVD/PxxPyJSfxXnplJqv/oKw9MRYlywFreTDboM0M+Kj1L0O5CYiErsBDBMjLW/
+        r51p/mueF3j7/6I1fCofiOXiD6SKzw7WVnjXyLv7xzIXW+37EHcIxUtSuBUNbjZC
+        nwAZYytlu1uHQqMwEkvY
         -----END CERTIFICATE-----
 
+# end of file

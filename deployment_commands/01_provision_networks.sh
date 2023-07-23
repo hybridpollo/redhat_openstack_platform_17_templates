@@ -4,7 +4,7 @@
 # Variables
 ###################################################                                              
 STACK_NAME="voltron"
-THT_CUSTOM="/home/stack/rhosp_deployment/overcloud/deployment_templates"
+THT_CUSTOM="/home/stack/redhat_openstack_platform_17_templates/deployment_templates"
 NET_IN_FILE="${THT_CUSTOM}/baremetal_node_deployment/network_data.yaml"
 NET_OUT_FILE="${THT_CUSTOM}/overcloud_software_deployment/deployed_networks.yaml"
 
