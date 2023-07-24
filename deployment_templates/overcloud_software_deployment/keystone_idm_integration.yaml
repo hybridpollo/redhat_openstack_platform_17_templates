@@ -13,3 +13,9 @@ parameter_defaults:
       user_filter: "(|(memberOf=cn=rhosp-admins,cn=groups,cn=accounts,dc=voltron,dc=xyz)(memberOf=cn=rhosp-users,cn=groups,cn=accounts,dc=voltron,dc=xyz))"
       user_objectclass: person
       user_id_attribute: uid
+      user_name_attribute: uid
+      group_tree_dn: cn=groups,cn=accounts,dc=voltron,dc=xyz
+      group_filter: '(cn=rhosp-*)'
+      group_objectclass: groupOfNames
+      group_id_attribute: ipaUniqueID
+      group_name_attribute: cn
