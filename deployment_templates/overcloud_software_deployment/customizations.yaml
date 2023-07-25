@@ -11,7 +11,7 @@ parameter_defaults:
 
   # overcloud horizon url name and domain
   CloudDomain: voltron.xyz
-  CloudName: horizon.bertoknows.com
+  CloudName: osp17-beta.bertoknows.com
 
   # default keystone admin password
   AdminPassword: openstack
@@ -32,3 +32,4 @@ parameter_defaults:
   ComputeParameters:
     KernelArgs: "tsx=off"
     NeutronBridgeMappings: "datacentre:br-external"
+
