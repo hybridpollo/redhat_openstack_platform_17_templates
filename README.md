@@ -6,14 +6,11 @@
 
 ## Disclaimers ##
 
-Red Hat OpenStack Platform 17.1 is under a beta release as of 06-20-2024. 
-
-**Additional Remarks:** As a Red Hat associate providing product configuration examples in this repository, it is my responsibility to advise the reader that the contents of this repository are provided to the community to use as-is and comes without expectation of support from Red Hat. That being said, they have been successfully tested in a well defined lab environment and I am confident that you can be successful in the deployment as long as you are familiar with the pre-deployment planning, and deployment procedure of a Red Hat OpenStack Platform environment.
+As a Red Hat associate providing product configuration examples in this repository, it is my responsibility to advise the reader that the contents of this repository are provided to the community to use as-is and comes without expectation of support from Red Hat. That being said, they have been successfully tested in a well defined lab environment and I am confident that you can be successful in the deployment as long as you are familiar with the pre-deployment planning, and deployment procedure of a Red Hat OpenStack Platform environment.
 This repository and templates contain information that may be viewed as of sensitive information such as IP addresses and self signed ssl certificates. Use caution when developing your own templates and do not unintentionally expose unwanted detail to unpriviledged eyes.
 
 ## Description ##
 Red Hat OpenStack Platform 17 is the latest major version of Red Hat's opinionated installation for OpenStack released in September, 2022 as GA release. This repository contains a collection of templates developed to deploy a Red Hat OpenStack Platform 17 in a general purpose compute node deployment.
-
 
 ## Reference Architecture ##
 The reference architecture for this deployment contains the following host roles:
