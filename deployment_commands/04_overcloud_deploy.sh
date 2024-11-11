@@ -40,8 +40,8 @@ openstack overcloud deploy --stack ${STACK_NAME} --templates \
   -e ${THT_CUSTOM}/overcloud_software_deployment/ssh_banner.yaml \
   -e ${THT_CUSTOM}/overcloud_software_deployment/customizations.yaml \
   -e ${THT_CUSTOM}/overcloud_software_deployment/storage_config.yaml  \
+  -e ${THT_CUSTOM}/overcloud_software_deployment/keystone_idm_integration.yaml \
+  -e ${THT_CUSTOM}/overcloud_software_deployment/rhsm_registration.yaml \
   -e ${THT_CUSTOM}/overcloud_software_deployment/deployed_vips.yaml  \
   -e ${THT_CUSTOM}/overcloud_software_deployment/deployed_networks.yaml  \
   -e ${THT_CUSTOM}/overcloud_software_deployment/deployed_baremetal_nodes.yaml
-
-

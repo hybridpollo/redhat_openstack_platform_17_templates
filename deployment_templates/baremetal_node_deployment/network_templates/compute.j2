@@ -17,6 +17,7 @@ network_config:
 
 # external bridge
 # used for external api and provider network accessbility
+# and the tagged internal openstack infrastructure networks
 - type: ovs_bridge
   name: br-external
   mtu: {{ min_viable_mtu }}
@@ -59,4 +60,3 @@ network_config:
     addresses:
     - ip_netmask: {{ storage_mgmt_ip }}/{{ storage_mgmt_cidr }}
     routes: {{ [storage_mgmt_host_routes] | flatten | unique }}
-

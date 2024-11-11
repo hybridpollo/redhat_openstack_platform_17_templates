@@ -30,4 +30,3 @@ fi
 # Provision the overcloud vips command
 ###################################################    
 openstack overcloud network vip provision --stack ${STACK_NAME} ${VIP_IN_FILE} --output ${VIP_OUT_FILE}
-

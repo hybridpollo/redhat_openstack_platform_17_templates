@@ -7,14 +7,29 @@ parameter_defaults:
   ContainerImagePrepare:
   - push_destination: true
     set:
+      ceph_alertmanager_image: ose-prometheus-alertmanager
+      ceph_alertmanager_namespace: registry.redhat.io/openshift4
+      ceph_alertmanager_tag: v4.6
+      ceph_grafana_image: rhceph-6-dashboard-rhel9
+      ceph_grafana_namespace: registry.redhat.io/rhceph
+      ceph_grafana_tag: latest
+      ceph_image: rhceph-6-rhel9
+      ceph_namespace: registry.redhat.io/rhceph
+      ceph_node_exporter_image: ose-prometheus-node-exporter
+      ceph_node_exporter_namespace: registry.redhat.io/openshift4
+      ceph_node_exporter_tag: v4.6
+      ceph_prometheus_image: ose-prometheus
+      ceph_prometheus_namespace: registry.redhat.io/openshift4
+      ceph_prometheus_tag: v4.6
+      ceph_tag: latest
       name_prefix: openstack-
       name_suffix: ''
-      namespace: registry.redhat.io/rhosp-beta
+      namespace: registry.redhat.io/rhosp-rhel9
       rhel_containers: false
       neutron_driver: ovn
-      tag: '17.1'
-  ContainerImageRegistryLogin: True
+      tag: 17.1.3
+    tag_from_label: '{version}-{release}'
+  ContainerImageRegistryLogin: false
   ContainerImageRegistryCredentials:
     registry.redhat.io:
       fakeaccountid|fakeaccountname: iliketurtles
-
