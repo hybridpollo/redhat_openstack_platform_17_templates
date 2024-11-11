@@ -2,7 +2,7 @@
 
 **Contributors:**      Alberto Rivera Laporte | hybridpollo@proton.me | berto@redhat.com 
 
-**Red Hat OpenStack Platform Release:** 17.1 Beta
+**Red Hat OpenStack Platform Release:** 17.1.3 
 
 ## Disclaimers ##
 
@@ -34,30 +34,28 @@ The reference architecture for this deployment contains the following host roles
 
 ## Repository Structure ##
 ```
-.
 ├── README.md
 ├── deployment_commands
-│   ├── 01_provision_networks.sh
-│   ├── 02_provision_vips.sh
-│   ├── 03_provision_baremetal_nodes.sh
-│   ├── 04_overcloud_deploy.sh
-│   └── 05_delete_overcloud.sh
+│   ├── 01_provision_networks.sh
+│   ├── 02_provision_vips.sh
+│   ├── 03_provision_baremetal_nodes.sh
+│   ├── 04_overcloud_deploy.sh
+│   └── 05_delete_overcloud.sh
 └── deployment_templates
     ├── baremetal_node_deployment
-    │   ├── baremetal_deployment.yaml
-    │   ├── network_data.yaml
-    │   ├── network_templates
-    │   │   ├── compute.j2
-    │   │   └── controller.j2
-    │   └── vip_data.yaml
+    │   ├── baremetal_deployment.yaml
+    │   ├── network_data.yaml
+    │   ├── network_templates
+    │   │   ├── compute.j2
+    │   │   └── controller.j2
+    │   └── vip_data.yaml
     └── overcloud_software_deployment
         ├── container_image_prepare.yaml
         ├── customizations.yaml
-        ├── deployed_baremetal_nodes.yaml
-        ├── deployed_networks.yaml
-        ├── deployed_vips.yaml
         ├── enable_tls.yaml
         ├── inject_trust_anchor.yaml
+        ├── keystone_idm_integration.yaml
+        ├── rhsm_registration.yaml
         ├── roles_data.yaml
         ├── ssh_banner.yaml
         └── storage_config.yaml
@@ -161,6 +159,8 @@ openstack overcloud deploy --stack ${STACK_NAME} --templates \
   -e ${THT_CUSTOM}/overcloud_software_deployment/ssh_banner.yaml \
   -e ${THT_CUSTOM}/overcloud_software_deployment/customizations.yaml \
   -e ${THT_CUSTOM}/overcloud_software_deployment/storage_config.yaml  \
+  -e ${THT_CUSTOM}/overcloud_software_deployment/keystone_idm_integration.yaml \
+  -e ${THT_CUSTOM}/overcloud_software_deployment/rhsm_registration.yaml \
   -e ${THT_CUSTOM}/overcloud_software_deployment/deployed_vips.yaml  \
   -e ${THT_CUSTOM}/overcloud_software_deployment/deployed_networks.yaml  \
   -e ${THT_CUSTOM}/overcloud_software_deployment/deployed_baremetal_nodes.yaml

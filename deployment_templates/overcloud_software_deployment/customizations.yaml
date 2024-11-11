@@ -2,16 +2,16 @@ parameter_defaults:
   # general host settings parameters
   TimeZone: "America/Chicago"
   DnsServers:
-    - 172.16.254.3
+    - 8.8.8.8
     - 8.8.4.4
-  DnsSearchDomains: voltron.xyz
+  DnsSearchDomains: example.com
   NtpServer:
     - clock.nyc.he.net
     - clock.fmt.he.net
 
   # overcloud horizon url name and domain
-  CloudDomain: voltron.xyz
-  CloudName: horizon.bertoknows.com
+  CloudDomain: example.com
+  CloudName: openstack.example.com
 
   # default keystone admin password
   AdminPassword: openstack
@@ -33,3 +33,22 @@ parameter_defaults:
     KernelArgs: "tsx=off"
     NeutronBridgeMappings: "datacentre:br-external"
 
+
+# This firewall rule will autorize 12345/tcp from localhost on all the nodes
+# in the overcloud:
+#  ExtraFirewallRules:
+#    '301 allow arbitrary tcp rule':
+#      dport: 12345
+#      proto: tcp
+#      source: 127.0.0.1
+#      action: insert
+
+# This firewall rule will autorize 12345/tcp from localhost on all the
+# compute nodes:
+#  ComputeParameters:
+#    ExtraFirewallRules:
+#      '301 allow arbitrary tcp rule':
+#        dport: 12345
+#        proto: tcp
+#        source: 127.0.0.1
+#        action: insert

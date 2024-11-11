@@ -64,4 +64,3 @@
       gateway_ip: 172.25.50.1
       vlan: 50
       enable_dhcp: false
-

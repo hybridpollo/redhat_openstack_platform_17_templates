@@ -3,22 +3,9 @@
 - name: Controller
   count: 3
   defaults:
-    networks:
-    - network: ctlplane
-      vif: true
-    - network: external
-      subnet: external_subnet
-    - network: internal_api
-      subnet: internal_api_subnet 
-    - network: tenant
-      subnet: tenant_subnet
-    - network: storage
-      subnet: storage_subnet
-    - network: storage_mgmt
-      subnet: storage_mgmt_subnet
     network_config:
       template: /home/stack/rhosp_deployment/overcloud/deployment_templates/baremetal_node_deployment/network_templates/controller.j2
-      dns_search_domains: voltron.xyz
+      dns_search_domains: example.com
       physical_bridge_name: br-external
       default_route_network:
       - external
@@ -26,7 +13,7 @@
     - playbook: /usr/share/ansible/tripleo-playbooks/cli-overcloud-node-growvols.yaml
       extra_vars:
         growvols_args:
-          /=20GB
+          /=100GB
           /tmp=2GB
           /var/log=10GB
           /var/log/audit=5GB
@@ -35,6 +22,7 @@
   instances:
   - hostname: osp-ctrl01
     name: osp-ctrl01
+    managed: true
     config_drive:
       cloud_config:
         ssh_pwauth: true
@@ -59,9 +47,9 @@
         fixed_ip: 172.25.53.21
       - network: storage_mgmt
         fixed_ip: 172.25.54.21
-
   - hostname: osp-ctrl02
     name: osp-ctrl02
+    managed: true
     config_drive:
       cloud_config:
         ssh_pwauth: true
@@ -86,9 +74,9 @@
         fixed_ip: 172.25.53.22
       - network: storage_mgmt
         fixed_ip: 172.25.54.22
-
   - hostname: osp-ctrl03
     name: osp-ctrl03
+    managed: true
     config_drive:
       cloud_config:
         ssh_pwauth: true
@@ -118,22 +106,9 @@
 - name: Compute
   count: 2
   defaults:
-    networks:
-    - network: ctlplane
-      vif: true
-    - network: external
-      subnet: external_subnet
-    - network: internal_api
-      subnet: internal_api_subnet 
-    - network: tenant
-      subnet: tenant_subnet
-    - network: storage
-      subnet: storage_subnet
-    - network: storage_mgmt
-      subnet: storage_mgmt_subnet
     network_config:
       template: /home/stack/rhosp_deployment/overcloud/deployment_templates/baremetal_node_deployment/network_templates/compute.j2
-      dns_search_domains: example.xyz
+      dns_search_domains: example.com
       physical_bridge_name: br-external
       default_route_network:
       - external
@@ -141,7 +116,7 @@
     - playbook: /usr/share/ansible/tripleo-playbooks/cli-overcloud-node-growvols.yaml
       extra_vars:
         growvols_args:
-          /=50GB
+          /=100GB
           /tmp=4GB
           /var/log=50GB
           /var/log/audit=5GB
@@ -150,6 +125,7 @@
   instances:
   - hostname: osp-comp01
     name: osp-comp01
+    managed: true
     config_drive:
       cloud_config:
         ssh_pwauth: true
@@ -174,9 +150,9 @@
         fixed_ip: 172.25.53.24
       - network: storage_mgmt
         fixed_ip: 172.25.54.24
-
   - hostname: osp-comp02
     name: osp-comp02
+    managed: true
     config_drive:
       cloud_config:
         ssh_pwauth: true
@@ -201,4 +177,3 @@
         fixed_ip: 172.25.53.25
       - network: storage_mgmt
         fixed_ip: 172.25.54.25
-

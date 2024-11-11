@@ -30,4 +30,3 @@ fi
 # Provision the overcloud networks command
 ###################################################    
 openstack overcloud network provision --stack ${STACK_NAME} ${NET_IN_FILE} --output ${NET_OUT_FILE}
-

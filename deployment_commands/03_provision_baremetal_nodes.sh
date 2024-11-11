@@ -31,4 +31,3 @@ fi
 ###################################################    
 openstack overcloud node provision --stack ${STACK_NAME} --network-config \
 ${BM_IN_FILE} --output ${BM_OUT_FILE}
-

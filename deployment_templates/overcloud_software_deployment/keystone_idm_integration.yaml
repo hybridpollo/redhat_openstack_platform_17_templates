@@ -1,0 +1,22 @@
+# This is an example template on how to configure keystone domain specific LDAP
+# backends. This will configure a domain called tripleoldap will the attributes
+# specified.
+parameter_defaults:
+  KeystoneLDAPDomainEnable: true
+  KeystoneLDAPBackendConfigs:
+    example:
+      url: ldaps://idm.example.com:636
+      user: uid=rhosp-svc-ldap,cn=users,cn=accounts,dc=example,dc=com
+      password: iliketurtles
+      suffix: dc=example,dc=com
+      user_tree_dn: cn=users,cn=accounts,dc=example,dc=com
+      user_filter: "(|(memberOf=cn=rhosp-admins,cn=groups,cn=accounts,dc=example,dc=com)(memberOf=cn=rhosp-users,cn=groups,cn=accounts,
+dc=example,dc=com))"
+      user_objectclass: person
+      user_id_attribute: uid
+      user_name_attribute: uid
+      group_tree_dn: cn=groups,cn=accounts,dc=example,dc=com
+      group_filter: '(cn=rhosp-*)'
+      group_objectclass: groupOfNames
+      group_id_attribute: ipaUniqueID
+      group_name_attribute: cn

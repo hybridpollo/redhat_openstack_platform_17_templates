@@ -37,7 +37,7 @@ network_config:
     routes: {{ [external_host_routes, [{'default': True, 'next_hop': external_gateway_ip}]] | flatten | unique }}
 
 # internal bridge
-# used for tagged traffic of osp internal networks
+# used for the tagged internal openstack infrastructure networks
 - type: ovs_bridge
   name: br-internal
   mtu: {{ min_viable_mtu }}
@@ -74,4 +74,3 @@ network_config:
   addresses:
   - ip_netmask: {{ storage_mgmt_ip }}/{{ storage_mgmt_cidr }}
   routes: {{ [storage_mgmt_host_routes] | flatten | unique }}
-
