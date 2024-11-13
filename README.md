@@ -1,36 +1,40 @@
 ## Red Hat OpenStack Platform 17.1 General Purpose Deployment Templates ##
 
-**Contributors:**      Alberto Rivera Laporte | hybridpollo@proton.me | berto@redhat.com 
+**Contributors:**      Alberto Rivera Laporte | berto@acanorex.io | berto@redhat.com 
 
 **Red Hat OpenStack Platform Release:** 17.1.3 
 
 ## Disclaimers ##
 
-As a Red Hat associate providing product configuration examples in this repository, it is my responsibility to advise the reader that the contents of this repository are provided to the community to use as-is and comes without expectation of support from Red Hat. That being said, they have been successfully tested in a well defined lab environment and I am confident that you can be successful in the deployment as long as you are familiar with the pre-deployment planning, and deployment procedure of a Red Hat OpenStack Platform environment.
-This repository and templates contain information that may be viewed as of sensitive information such as IP addresses and self signed ssl certificates. Use caution when developing your own templates and do not unintentionally expose unwanted detail to unpriviledged eyes.
+As a Red Hat associate providing product configuration examples in this repository, it is my responsibility to disclose the contents of this repository are provided to the community to use as-is and comes without expectation of support from Red Hat. With that out of the way, these deployment templates have been  successfully tested in a well defined lab environment and I am confident that you can be successful in the deployment as long as you acquainted with proper deployment planning of a Red Hat OpenStack Platform environment. 
+
+This repository and templates contain information that may be viewed as of sensitive nature such as IP addresses and self signed ssl certificates. Use caution when developing your own templates and do not unintentionally expose such details to unpriviledged eyes.
 
 ## Description ##
-Red Hat OpenStack Platform 17 is the latest major version of Red Hat's opinionated installation for OpenStack released in September, 2022 as GA release. This repository contains a collection of templates developed to deploy a Red Hat OpenStack Platform 17 in a general purpose compute node deployment.
+Red Hat OpenStack Platform 17 Red Hat's opinionated installation for OpenStack released based on the Wallaby release . This repository contains a collection of templates developed to deploy a Red Hat OpenStack Platform 17 in a general purpose compute node deployment.
 
-## Reference Architecture ##
+## Tested Reference Architecture ##
 The reference architecture for this deployment contains the following host roles:
 
 * 1 x Undercloud Node
 * 3 x Overcloud Controllers
 * 2 x Overcloud Compute Nodes
 
-## Overcloud Features ##
+## OpenStack Overcloud Features ##
 * Neutron ML2/OVN networking(non-dvr)
 * SSL/TLS encrypted public endpoints
 * Predictable overcloud node baremetal deployment
 * Predictable overcloud node host names
 * Predictable overcloud node ip addresses
 * Predictable overcloud endpoint virtual ips
-* Custom disk partitioning for deployed nodes
-* Custom root password injection for deployed nodes
-* Custom storage backend using an NFS backend for Glance images
-* Custom storage backend using an NFS backend for Cinder volumes 
+* Custom disk partitioning for deployed overcloud nodes
+* Custom root password injection for deployed overcloud nodes
+* Glance image storage backend uses the NFS driver.
+* Cinder block storage backend uses the  NFS driver.
 * Compute service uses local storage for ephemeral / root disks of OpenStack instances
+* OpenStack Keystone Authentication with Red Hat Identity Manager integration.
+* Red Hat Subscription Manager integration for automatic resgistration of
+  overcloud nodes to Red Hats content management network.
 
 ## Repository Structure ##
 ```
