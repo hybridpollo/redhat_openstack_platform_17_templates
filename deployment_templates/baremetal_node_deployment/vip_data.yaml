@@ -5,7 +5,6 @@
 
 - network: internal_api
   name: internal_api_vip
-  ip_address: 172.25.50.10
   ip_address: 172.25.51.10
 
 - network: storage
