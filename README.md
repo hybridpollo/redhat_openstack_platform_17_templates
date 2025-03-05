@@ -2,7 +2,7 @@
 
 **Contributors:**      Alberto Rivera Laporte | berto@acanorex.io | berto@redhat.com 
 
-**Red Hat OpenStack Platform Release:** 17.1.3 
+**Red Hat OpenStack Platform Release:** 17.1.4 
 
 ## Disclaimers ##
 
@@ -195,3 +195,37 @@ openstack overcloud delete ${STACK_NAME} -b ${BM_IN_FILE} \
 ```
 
 
+##  Undercloud Tricks ##
+In previous versions of Red Hat OpenStack Platform a system-installed
+Heat process was used to install the overcloud. In version 17.x we use ephemeral Heat to
+install the overcloud meaning that the heat-api and heat-engine processes are
+started on demand by the deployment, update, and upgrade commands.
+
+To launch the ephemeral heat process so that you can execute heat commands to
+review the rendered environment files from your deployment templates as stored
+in the ephemeral heat process use the following:
+```
+OVERCLOUD_STACK_NAME=voltron
+openstack tripleo launch heat --heat-dir /home/stack/overcloud-deploy/${OVERCLOUD_STACK_NAME}/heat-launcher --restore-db
+```
+
+Export the OS_CLOUD environment:
+```
+export OS_CLOUD=heat
+```
+
+Example in listing the installed stacks:
+```
+openstack stack list
+```
+Example output:
+
+```
++--------------------------------------+------------+---------+-----------------+----------------------+--------------+
+| ID                                   | Stack Name | Project | Stack Status
+| Creation Time        | Updated Time |
++--------------------------------------+------------+---------+-----------------+----------------------+--------------+
+| 761e2a54-c6f9-4e0f-abe6-c8e0ad51a76c | voltron    | admin   | CREATE_COMPLETE
+| 2022-08-29T20:48:37Z | None         |
++--------------------------------------+------------+---------+-----------------+----------------------+--------------+
+```
